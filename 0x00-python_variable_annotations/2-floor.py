@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-import math
 """Take float and floor's it return result"""
+
+
+import math
 
 
 def floor(n: float) -> int:
