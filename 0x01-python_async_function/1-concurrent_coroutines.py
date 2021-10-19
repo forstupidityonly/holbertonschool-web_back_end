@@ -10,7 +10,6 @@ wait_random = __import__('0-basic_async_syntax').wait_random
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """the rtn needs to be in assending order? concurrency???"""
-    myList = []
-    for i in range(6):
-        myList.append(asyncio.run(wait_random(max_delay)))
-    return myList
+    i = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
+    j = [await i for i in asyncio.as_completed(i)]
+    return j
