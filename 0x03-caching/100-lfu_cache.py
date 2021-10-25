@@ -3,7 +3,7 @@
 from base_caching import BaseCaching
 
 
-class MRUCache(BaseCaching):
+class LFUCache(BaseCaching):
     """first in first out caching"""
 
     def __init__(self):
