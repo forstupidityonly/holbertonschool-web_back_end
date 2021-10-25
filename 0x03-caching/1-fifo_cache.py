@@ -3,9 +3,9 @@
 from base_caching import BaseCaching
 
 
-
 class FIFOCache(BaseCaching):
     """first in first out caching"""
+
     def __init__(self):
         """what is overloading?"""
         super().__init__()
