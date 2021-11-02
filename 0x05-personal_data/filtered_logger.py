@@ -65,12 +65,13 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     return mysql.connector.connect(user=username, password=password, host=host,
                                    database=db_name)
 
+
 def main():
     """main"""
     db = get_db()
     cursor = db.cursor()
     cursor.execute("SELECT * FROM users:")
-        for row in cursor.fetchall():
+    for row in cursor.fetchall():
         logger.info(filter_datum(PII_FIELDS, "***",
                                  "name={}; email={}; phone={}; ssn={}; "
                                  "password={}; ip={}; last_login={}; "
