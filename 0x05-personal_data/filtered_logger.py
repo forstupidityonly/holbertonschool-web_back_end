@@ -64,3 +64,22 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     db_name = os.environ.get('PERSONAL_DATA_DB_NAME')
     return mysql.connector.connect(user=username, password=password, host=host,
                                    database=db_name)
+
+def main():
+    """main"""
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users:")
+        for row in cursor.fetchall():
+        logger.info(filter_datum(PII_FIELDS, "***",
+                                 "name={}; email={}; phone={}; ssn={}; "
+                                 "password={}; ip={}; last_login={}; "
+                                 "user_agent={}".format(row[1], row[2], row[3],
+                                                        row[4], row[5],
+                                                        row[6], row[7],
+                                                        row[8]),
+                                 RedactingFormatter.SEPARATOR))
+
+
+if __name__ == '__maia__':
+    main()
