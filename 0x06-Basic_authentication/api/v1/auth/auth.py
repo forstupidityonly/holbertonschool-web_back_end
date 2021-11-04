@@ -9,7 +9,17 @@ class Auth:
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """used later"""
-        return False
+        if path is None:
+            return True
+        else:
+            if path[-1] != '/':
+                path += '/'
+        if not excluded_paths:
+            return True
+        if path not in excluded_paths:
+            return True
+        else:
+            return False
 
     def authorization_header(self, request=None) -> str:
         """used later"""
