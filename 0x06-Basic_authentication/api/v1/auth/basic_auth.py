@@ -29,3 +29,9 @@ class BasicAuth(Auth):
             return None
         except binascii.Error:
             return None
+
+    def extract_user_credentials(self, deco: str) -> (str, str):
+        """changed to deco to stay pycodestyle complient"""
+        if (not isinstance(deco, str) or ':' not in deco):
+            return (None, None)
+        return (deco[:deco.find(':')], deco[deco.find(':') + 1:])
