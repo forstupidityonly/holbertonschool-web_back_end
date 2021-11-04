@@ -8,7 +8,7 @@ class Auth:
     """api auth"""
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """used later"""
+        """ensure path not in excluded_paths"""
         if path is None:
             return True
         else:
@@ -22,8 +22,10 @@ class Auth:
             return False
 
     def authorization_header(self, request=None) -> str:
-        """used later"""
-        return None
+        """fetch the auth header"""
+        if not request:
+            return None
+        return request.headers.get('Authorization')
 
     def current_user(self, request=None) -> TypeVar('User'):
         """Return None"""
