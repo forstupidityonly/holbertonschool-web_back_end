@@ -12,7 +12,7 @@ from flask import session
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def auth_session() -> str:
     """flask?"""
-    mail = request.form.get("email")
+    email = request.form.get("email")
     if (not email):
         return jsonify({"error": "email missing"}), 400
     password = request.form.get("password")
