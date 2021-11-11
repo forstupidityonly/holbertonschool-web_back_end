@@ -30,3 +30,13 @@ def auth_session() -> str:
     out = jsonify(user[0].to_json())
     out.set_cookie(sesion_name, sesion_id)
     return out
+
+@app_views.route('/auth_session/logout',
+                 methods=['DELETE'], strict_slashes=False)
+def delete_session() -> str:
+    """del sesh"""
+    from api.v1.app import auth
+    state = auth.destroy_session(request)
+    if (state):
+        return jsonify({}), 200
+    abort(404)
