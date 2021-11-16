@@ -46,3 +46,14 @@ class DB:
         if not result:
             raise NoResultFound
         return result
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """use find_user by id then update using kwargs"""
+        user = self.find_user_by(id=user_id)
+        validVals = ['id', 'email', 'hashed_password', 'session_id',
+                     'reset_token']
+        for key, val in kwargs.items():
+            if key not in validVals:
+                raise ValueError
+            setattr(user, key, val)
+            self._session.commit()
