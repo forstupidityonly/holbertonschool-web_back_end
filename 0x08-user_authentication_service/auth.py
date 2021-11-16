@@ -3,7 +3,7 @@
 import bcrypt
 
 
-def _hash_password(pswrd: str) -> bytes:
+def _hash_password(pswrd: str) -> str:
     """use bcrypt.hashpw on pswrd"""
     passwd = b'pswrd'
     salt = bcrypt.gensalt()
