@@ -6,5 +6,6 @@ import bcrypt
 def _hash_password(pswrd: str) -> bytes:
     """use bcrypt.hashpw on pswrd"""
     passwd = b'pswrd'
-    hashed = bcrypt.hashpw(passwd, bcrypt.gensalt())
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(passwd, salt)
     return hashed
