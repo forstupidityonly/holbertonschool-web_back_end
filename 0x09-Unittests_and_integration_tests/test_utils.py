@@ -15,7 +15,7 @@ class TestAccessNestedMap(unittest.TestCase):
     ])
     def test_access_nested_map(self, nested_map, path, expected):
         """test class"""
-        self.assertEquals(access_nested_map(nested_map, path), expected)
+        self.assertEqual(access_nested_map(nested_map, path), expected)
     
     @parameterized.expand([
         ({}, ("a",), KeyError),
@@ -35,7 +35,7 @@ class TestGetJson(unittest.TestCase):
     def test_get_json(self, test_url, test_payload, class_mock):
         """test class"""
         class_mock.return_value = test_payload
-        self.assertEquals(get_json(test_url), test_payload)
+        self.assertEqual(get_json(test_url), test_payload)
 
 class TestMemorize(unittest.TestCase):
     """test class"""
