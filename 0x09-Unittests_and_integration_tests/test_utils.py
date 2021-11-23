@@ -46,11 +46,11 @@ class TestMemoize(unittest.TestCase):
 
         class TestClass:
             """test class"""
-            
+
             def a_method(self):
                 """meanign of life"""
                 return 42
-            
+
             @memoize
             def a_property(self):
                 """roundabout"""
