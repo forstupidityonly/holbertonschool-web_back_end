@@ -24,7 +24,7 @@ class TestGithubOrgClient(unittest.TestCase):
         mock.assert_called_once_with(f'https://api.github.com/orgs/{name}')
 
     def test_public_repos_url(self):
-        """test class"""
+        """test class more documentation"""
         with patch('client.GithubOrgClient.org',
                    new_callable=PropertyMock) as mock:
             payload = {"repos_url": "World"}
@@ -35,7 +35,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @mock.patch("client.get_json")
     def test_public_repos(self, mock_get_json):
-        """test class"""
+        """test class more documentation"""
         mock_get_json.return_value = [{"name": "google"},
                                       {"name": "abc"}]
         with mock.patch.object(GithubOrgClient, "_public_repos_url",
