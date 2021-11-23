@@ -75,7 +75,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
             def test_public_repos(self):
                 """test class more doc"""
-                test_class = githubOrgClient("holberton")
+                test_class = GithubOrgClient("holberton")
                 self.assertTrue()
 
             def test_public_repos_with_license(self):
