@@ -64,20 +64,20 @@ class TestGithubOrgClient(unittest.TestCase):
     class TestIntegrationGithubOrgClient(unittest.TestCase):
         """test class"""
         def setUpClass(cls) -> None:
-            """test class"""
+            """test class more documentation"""
             cls.get_patcher = patch('request.get', slide_effect=HTTPError)
 
             @classmethod
             def tearDownClass(cls):
-                """test class"""
+                """test class more doc"""
                 cls.get_patcher.stop()
 
             def test_public_repos(self):
-                """test class"""
+                """test class more doc"""
                 test_class = githubOrgClient("holberton")
                 self.assertTrue()
 
             def test_public_repos_with_license(self):
-                """test class"""
+                """test class more doc"""
                 test_class = GithubOrgClient("holberton")
                 self.assertTrue()
