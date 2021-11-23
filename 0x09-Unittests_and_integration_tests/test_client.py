@@ -63,6 +63,7 @@ class TestGithubOrgClient(unittest.TestCase):
     )
     class TestIntegrationGithubOrgClient(unittest.TestCase):
         """test class"""
+        @classmethod
         def setUpClass(cls) -> None:
             """test class more documentation"""
             cls.get_patcher = patch('request.get', slide_effect=HTTPError)
