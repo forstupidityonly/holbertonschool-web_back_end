@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""test module"""
+"""test module more documentation"""
 from client import GithubOrgClient
 from unittest import mock
 from unittest.mock import patch, Mock, PropertyMock
@@ -35,7 +35,8 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @mock.patch("client.get_json")
     def test_public_repos(self, mock_get_json):
-        """test class more documentation"""
+        """test class
+        more documentation"""
         mock_get_json.return_value = [{"name": "google"},
                                       {"name": "abc"}]
         with mock.patch.object(GithubOrgClient, "_public_repos_url",
