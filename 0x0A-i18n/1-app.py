@@ -18,7 +18,6 @@ app.config.from_object(Config)
 """config documentation"""
 
 
-
 @app.route('/')
 def helloWorld():
     """rtn rendertemplate"""
