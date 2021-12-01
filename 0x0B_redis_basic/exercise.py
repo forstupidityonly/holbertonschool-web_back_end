@@ -16,6 +16,7 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return wrapper
 
+
 def call_history(method: Callable) -> Callable:
     """call hist"""
     key = method.__qualname__
@@ -27,6 +28,7 @@ def call_history(method: Callable) -> Callable:
         self._redis.rpush("{}:outputs".format(key), value)
         return value
     return wrapper
+
 
 def replay(method: Callable) -> Callable:
     """
@@ -50,7 +52,6 @@ class Cache():
         """init class"""
         self._redis = redis.Redis()
         self._redis.flushdb()
-
 
     @count_calls
     @call_history
