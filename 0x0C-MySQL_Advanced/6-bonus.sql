@@ -13,7 +13,7 @@ BEGIN
     FROM DUAL
     WHERE project_name NOT IN (SELECT name FROM projects);
 
-    INSERT INTO Corrections (user_id, project_id, score)
+    INSERT INTO corrections (user_id, project_id, score)
     VALUES (user_id, (SELECT id FORM projects WHERE name = project_name), score);
 END;
 
