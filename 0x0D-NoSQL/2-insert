@@ -1,0 +1,3 @@
+// insert doc in colection
+
+db.school.insert({"name" : "Holberton school"})
