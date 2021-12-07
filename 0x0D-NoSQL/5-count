@@ -1,0 +1,3 @@
+// display num doc in colection school
+
+db.school.count()
