@@ -1,6 +1,6 @@
 #!/usr/bin/node
 function getResponseFromAPI() {
-  return new Promise((resovle, reject) => {
+  return new Promise((resolve, reject) => {
     resolve();
     reject();
   });
