@@ -1,0 +1,8 @@
+#!/usr/bin/node
+function signUpUser(firstName, lastName) {
+  return Promise.resolve({
+    firstName,
+    lastName,
+  });
+}
+export { signUpUser as default };
