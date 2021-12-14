@@ -16,4 +16,4 @@ async function asyncUploadUser() {
   }
 }
 
-export { asyncUploadUser as default }
+export { asyncUploadUser as default };
