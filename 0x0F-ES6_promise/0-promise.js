@@ -1,8 +1,8 @@
 #!/usr/bin/node
-function getResponseFromAPI(){
+function getResponseFromAPI() {
   return new Promise((resovle, reject) => {
-      resolve();
-      reject();
-    });
+    resolve();
+    reject();
+  });
 }
-export { getResponseFromAPI as default};
+export { getResponseFromAPI as default };
