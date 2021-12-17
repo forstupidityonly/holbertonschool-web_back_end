@@ -1,6 +1,5 @@
-#!/usr/bin/node
 export default class HolbertonCourse {
-  Constructor(name, length, students) {
+  constructor(name, length, students) {
     if (typeof name !== 'string') throw TypeError('Name must be a string');
     if (typeof length !== 'number') throw TypeError('Length must be a number');
     if (!Array.isArray(students)) throw TypeError('Students must be an array');
@@ -31,7 +30,7 @@ export default class HolbertonCourse {
     return this._students;
   }
 
-  set students(newStudents) {
+	set students(newStudents) {
 		if (!Array.isArray(newStudents)) throw TypeError('Students must be an array');
     this._students = newStudents;
   }
