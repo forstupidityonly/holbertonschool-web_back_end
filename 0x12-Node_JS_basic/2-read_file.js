@@ -17,10 +17,10 @@ function countStudents(path) {
       feild: student[3],
     }));
   const csStudents = splitStudents
-    .filter((student) => student.feild == 'CS')
+    .filter((student) => student.feild === 'CS')
     .map((student) => student.firstName);
   const sweStudents = splitStudents
-    .filter((student) => student.feild == 'SWE')
+    .filter((student) => student.feild === 'SWE')
     .map((student) => student.firstName);
   console.log(`Number of students: ${splitStudents.length}`);
   console.log(`Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
