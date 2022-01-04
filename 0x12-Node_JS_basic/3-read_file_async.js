@@ -1,31 +1,25 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 
-async function countStudents(path) {
-  let data;
+const countStudents = async (path) => {
   try {
-    data = await fs.promises.readFile(path, 'utf8');
-  } catch (error) {
+    const content = await fs.readFile(path, 'utf8');
+    let lines = content.toString().split(/\r?\n/);
+    lines = lines.filter((line) => line !== '');
+    lines.shift();
+    console.log(`Number of students: ${lines.length}`);
+    const findCS = lines.filter((line) => line.endsWith('CS')).map((line) => {
+      const stdntCS = line.split(',');
+      return stdntCS[0];
+    });
+    console.log(`Number of students in CS: ${findCS.length}. List: ${findCS.join(', ')}`);
+    const findSWE = lines.filter((line) => line.endsWith('SWE')).map((line) => {
+      const stdntSWE = line.split(',');
+      return stdntSWE[0];
+    });
+    console.log(`Number of students in SWE: ${findSWE.length}. List: ${findSWE.join(', ')}`);
+    return { lines, findCS, findSWE };
+  } catch (err) {
     throw new Error('Cannot load the database');
   }
-  const splitStudents = data.split('\n')
-    .map((student) => student.split(','))
-    .filter((student) => student.length === 4 && student[0] !== 'firstname')
-    .map((student) => ({
-      firstName: student[0],
-      lastName: student[1],
-      age: student[2],
-      feild: student[3],
-    }));
-  const csStudents = splitStudents
-    .filter((student) => student.feild === 'CS')
-    .map((student) => student.firstName);
-  const sweStudents = splitStudents
-    .filter((student) => student.feild === 'SWE')
-    .map((student) => student.firstName);
-  console.log(`Number of students: ${splitStudents.length}`);
-  console.log(`Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
-  console.log(`Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`);
-  return { splitStudents, csStudents, sweStudents };
-}
-
+};
 module.exports = countStudents;
