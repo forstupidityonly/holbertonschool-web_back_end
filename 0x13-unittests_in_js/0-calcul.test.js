@@ -21,6 +21,6 @@ describe("#calculateNumber()", function () {
     assert.strictEqual(calculateNumber(0.1, 0.2), 0);
   });
   it("should return -3 when calculateNumber is passed -1.6 and -0.7", function () {
-    assert.strictEqual(calculateNumber(-1.6, -0.7), 3);
+    assert.strictEqual(calculateNumber(-1.6, -0.7), -3);
   });
 });
